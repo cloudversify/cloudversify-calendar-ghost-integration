@@ -10,6 +10,7 @@ The first implementation target is a Ghost Code Injection or HTML card snippet t
 - Public custom-element booking widget foundation.
 - Code Injection and HTML card examples.
 - Customer setup documentation.
+- Local release packaging and handoff verification for the Ghost integration beta.
 - Local validation for no-secret, booking URL, Ghost attribution, and member-aware public settings.
 
 ## Repo Direction
@@ -29,6 +30,16 @@ Ghost should remain a thin publishing adapter over Cloudversify:
 ```sh
 npm run check
 ```
+
+## Release Packaging
+
+Build and verify a local Ghost handoff package with:
+
+```sh
+npm run release:check
+```
+
+The command writes `dist/cloudversify-ghost-booking-v<version>/` with the custom element, reviewed Ghost snippets, setup guide, implementation plan, release notes, a setup/QA `handoff.json`, and a checksum `manifest.json`.
 
 ## Ghost Fit
 

@@ -4,9 +4,12 @@ const widgetSource = await readFile('src/cloudversify-ghost-booking-element.js',
 const readme = await readFile('README.md', 'utf8');
 const plan = await readFile('docs/ghost-implementation-plan.md', 'utf8');
 const setup = await readFile('docs/ghost-customer-setup-guide.md', 'utf8');
+const releaseNotes = await readFile('docs/ghost-release-notes.md', 'utf8');
 const codeInjection = await readFile('examples/code-injection.html', 'utf8');
 const htmlCard = await readFile('examples/html-card-embed.html', 'utf8');
 const packageJson = await readFile('package.json', 'utf8');
+const packageScript = await readFile('scripts/package-ghost-release.mjs', 'utf8');
+const verifyScript = await readFile('scripts/verify-ghost-release.mjs', 'utf8');
 
 mustInclude(widgetSource, "customElements.define('cloudversify-ghost-booking'", 'custom element registration');
 mustInclude(widgetSource, "source_platform', 'ghost'", 'Ghost source platform attribution');
@@ -28,10 +31,16 @@ mustInclude(plan, 'Content API', 'plan Content API terminology');
 mustInclude(plan, 'No Admin API keys', 'plan no-secret boundary');
 mustInclude(setup, 'Ghost Admin', 'setup Ghost Admin');
 mustInclude(setup, 'HTML card', 'setup HTML card');
+mustInclude(releaseNotes, 'Beta Package Scope', 'release notes beta scope');
+mustInclude(releaseNotes, 'Rollback', 'release notes rollback');
 mustInclude(codeInjection, '<cloudversify-ghost-booking', 'Code Injection example');
 mustInclude(htmlCard, 'mode="embed"', 'HTML card embed example');
 mustInclude(htmlCard, 'member-segment=', 'member segment example');
 mustInclude(packageJson, 'scripts/smoke-ghost-widget.mjs', 'widget smoke validation script');
+mustInclude(packageJson, 'release:check', 'release check script');
+mustInclude(packageScript, 'handoff.json', 'release package handoff artifact');
+mustInclude(packageScript, 'manifest.json', 'release package manifest artifact');
+mustInclude(verifyScript, 'Ghost release package verification passed', 'release verification script');
 
 console.log('Ghost integration validation passed.');
 
