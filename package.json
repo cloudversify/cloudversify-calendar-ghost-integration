@@ -1,0 +1,19 @@
+{
+  "name": "cloudversify-calendar-ghost-integration",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ghost Custom integration and Code Injection foundation for Cloudversify Calendar booking.",
+  "type": "module",
+  "scripts": {
+    "check": "node --check src/cloudversify-ghost-booking-element.js && node --check scripts/validate-ghost-integration.mjs && node --check scripts/smoke-ghost-widget.mjs && node scripts/validate-ghost-integration.mjs && node scripts/smoke-ghost-widget.mjs"
+  },
+  "keywords": [
+    "cloudversify",
+    "calendar",
+    "ghost",
+    "integration",
+    "booking",
+    "scheduling"
+  ],
+  "license": "UNLICENSED"
+}
