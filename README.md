@@ -10,6 +10,7 @@ The first implementation target is a Ghost Code Injection or HTML card snippet t
 - Public custom-element booking widget foundation.
 - Code Injection and HTML card examples.
 - Customer setup documentation.
+- Schema-driven snippet generator for support and customer success handoff.
 - Local release packaging and handoff verification for the Ghost integration beta.
 - Local validation for no-secret, booking URL, Ghost attribution, and member-aware public settings.
 
@@ -40,6 +41,12 @@ npm run release:check
 ```
 
 The command writes `dist/cloudversify-ghost-booking-v<version>/` with the custom element, reviewed Ghost snippets, setup guide, implementation plan, release notes, a setup/QA `handoff.json`, and a checksum `manifest.json`.
+
+## Snippet Generator
+
+Import `buildGhostSnippet` from `src/ghost-snippet-generator.js` in support tooling.
+
+The generator follows the settings contract in `docs/ghost-settings-contract.md` and emits Ghost Code Injection or HTML card code with the reviewed CDN script URL.
 
 ## Ghost Fit
 

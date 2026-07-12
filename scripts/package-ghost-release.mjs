@@ -13,7 +13,9 @@ const sources = {
   htmlCard: 'examples/html-card-embed.html',
   setupGuide: 'docs/ghost-customer-setup-guide.md',
   implementationPlan: 'docs/ghost-implementation-plan.md',
-  releaseNotes: 'docs/ghost-release-notes.md'
+  releaseNotes: 'docs/ghost-release-notes.md',
+  settingsContract: 'docs/ghost-settings-contract.md',
+  snippetGenerator: 'src/ghost-snippet-generator.js'
 };
 
 await rm(releaseDir, { force: true, recursive: true });
@@ -28,7 +30,9 @@ const releaseFiles = [
   ['html-card-embed.html', await readFile(sources.htmlCard, 'utf8')],
   ['ghost-customer-setup-guide.md', await readFile(sources.setupGuide, 'utf8')],
   ['ghost-implementation-plan.md', await readFile(sources.implementationPlan, 'utf8')],
-  ['ghost-release-notes.md', await readFile(sources.releaseNotes, 'utf8')]
+  ['ghost-release-notes.md', await readFile(sources.releaseNotes, 'utf8')],
+  ['ghost-settings-contract.md', await readFile(sources.settingsContract, 'utf8')],
+  ['ghost-snippet-generator.js', await readFile(sources.snippetGenerator, 'utf8')]
 ];
 
 const handoff = {
@@ -42,6 +46,10 @@ const handoff = {
   supportedSurfaces: ['Code Injection', 'HTML card', 'Handlebars theme partial'],
   supportedModes: ['button', 'embed'],
   requiredSetting: 'organization-slug',
+  generator: {
+    settingsContract: 'ghost-settings-contract.md',
+    module: 'ghost-snippet-generator.js'
+  },
   attribution: {
     source_platform: 'ghost',
     utm_source: 'ghost',

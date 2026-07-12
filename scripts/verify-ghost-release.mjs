@@ -17,6 +17,8 @@ const expectedFiles = [
   'ghost-customer-setup-guide.md',
   'ghost-implementation-plan.md',
   'ghost-release-notes.md',
+  'ghost-settings-contract.md',
+  'ghost-snippet-generator.js',
   'handoff.json',
   'README.md'
 ];
@@ -37,8 +39,12 @@ mustInclude(await readFile(`${releaseDir}/cloudversify-ghost-booking-element.js`
 mustInclude(await readFile(`${releaseDir}/code-injection.html`, 'utf8'), '<cloudversify-ghost-booking', 'Code Injection example in package');
 mustInclude(await readFile(`${releaseDir}/html-card-embed.html`, 'utf8'), 'mode="embed"', 'HTML card embed in package');
 mustInclude(await readFile(`${releaseDir}/ghost-release-notes.md`, 'utf8'), 'Rollback', 'rollback notes in package');
+mustInclude(await readFile(`${releaseDir}/ghost-settings-contract.md`, 'utf8'), 'Ghost Settings Contract', 'settings contract in package');
+mustInclude(await readFile(`${releaseDir}/ghost-snippet-generator.js`, 'utf8'), 'buildGhostSnippet', 'snippet generator in package');
 mustInclude(handoff.supportedSurfaces, 'Code Injection', 'Code Injection handoff reference');
 mustInclude(handoff.supportedSurfaces, 'HTML card', 'HTML card handoff reference');
+assertEqual(handoff.generator.settingsContract, 'ghost-settings-contract.md', 'settings contract handoff reference');
+assertEqual(handoff.generator.module, 'ghost-snippet-generator.js', 'snippet generator module handoff reference');
 mustInclude(handoff.validation, 'npm run check', 'release validation command');
 mustInclude(handoff.guardrails.join('\n'), 'No Admin API keys', 'no-secret release guardrail');
 

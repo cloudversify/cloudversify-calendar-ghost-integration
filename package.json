@@ -5,7 +5,7 @@
   "description": "Ghost Custom integration and Code Injection foundation for Cloudversify Calendar booking.",
   "type": "module",
   "scripts": {
-    "check": "node --check src/cloudversify-ghost-booking-element.js && node --check scripts/validate-ghost-integration.mjs && node --check scripts/smoke-ghost-widget.mjs && node --check scripts/package-ghost-release.mjs && node --check scripts/verify-ghost-release.mjs && node scripts/validate-ghost-integration.mjs && node scripts/smoke-ghost-widget.mjs && npm run release:check",
+    "check": "node --check src/cloudversify-ghost-booking-element.js && node --check src/ghost-snippet-generator.js && node --check scripts/validate-ghost-integration.mjs && node --check scripts/smoke-ghost-widget.mjs && node --check scripts/smoke-ghost-snippet-generator.mjs && node --check scripts/package-ghost-release.mjs && node --check scripts/verify-ghost-release.mjs && node scripts/validate-ghost-integration.mjs && node scripts/smoke-ghost-widget.mjs && node scripts/smoke-ghost-snippet-generator.mjs && npm run release:check",
     "release:package": "node scripts/package-ghost-release.mjs",
     "release:verify": "node scripts/verify-ghost-release.mjs",
     "release:check": "npm run release:package && npm run release:verify"
