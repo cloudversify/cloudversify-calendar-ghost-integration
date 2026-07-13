@@ -23,6 +23,8 @@ npm run check
 
 The check validates JavaScript syntax, documentation coverage, no-secret guardrails, booking URL attribution, Ghost context handoff, credentialed booking host rejection, and minimum iframe height.
 
+Beta readiness and support handoff coverage are validated through `scripts/verify-ghost-beta-handoff.mjs`.
+
 ## Guardrails
 
 - No Admin API keys in Ghost public markup.

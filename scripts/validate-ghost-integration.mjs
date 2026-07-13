@@ -8,6 +8,8 @@ const releaseNotes = await readFile('docs/ghost-release-notes.md', 'utf8');
 const settingsContract = await readFile('docs/ghost-settings-contract.md', 'utf8');
 const reviewPacket = await readFile('docs/ghost-published-site-review-packet.md', 'utf8');
 const jeremyTutorial = await readFile('docs/jeremy-ghost-test-tutorial.md', 'utf8');
+const betaHandoff = await readFile('docs/ghost-beta-readiness-handoff.md', 'utf8');
+const supportHandoff = await readFile('docs/ghost-support-handoff.md', 'utf8');
 const qaCases = await readFile('qa/ghost-published-page-cases.json', 'utf8');
 const codeInjection = await readFile('examples/code-injection.html', 'utf8');
 const htmlCard = await readFile('examples/html-card-embed.html', 'utf8');
@@ -45,6 +47,10 @@ mustInclude(reviewPacket, 'Ghost Published Site Review Packet', 'published-site 
 mustInclude(reviewPacket, 'utm_medium=custom-integration', 'published-site packet attribution');
 mustInclude(jeremyTutorial, 'Desktop screenshot of button mode', 'Jeremy tutorial evidence');
 mustInclude(jeremyTutorial, 'HTML card', 'Jeremy tutorial Ghost setup');
+mustInclude(betaHandoff, 'External Blockers', 'beta readiness external blockers');
+mustInclude(betaHandoff, 'HIPAA isolation', 'beta readiness strategic next step');
+mustInclude(supportHandoff, 'Triage Checklist', 'support handoff triage');
+mustInclude(supportHandoff, 'rotate the exposed credential', 'support handoff credential handling');
 mustInclude(qaCases, 'code-injection-button', 'QA Code Injection case');
 mustInclude(qaCases, 'html-card-embed', 'QA HTML card case');
 mustInclude(codeInjection, '<cloudversify-ghost-booking', 'Code Injection example');
@@ -56,6 +62,7 @@ mustInclude(snippetGenerator, 'organizationSlug is required', 'snippet generator
 mustInclude(packageJson, 'scripts/smoke-ghost-widget.mjs', 'widget smoke validation script');
 mustInclude(packageJson, 'scripts/smoke-ghost-snippet-generator.mjs', 'snippet generator smoke validation script');
 mustInclude(packageJson, 'scripts/verify-ghost-review-packet.mjs', 'review packet validation script');
+mustInclude(packageJson, 'scripts/verify-ghost-beta-handoff.mjs', 'beta handoff validation script');
 mustInclude(packageJson, 'release:check', 'release check script');
 mustInclude(packageScript, 'settingsContract', 'release package settings contract source');
 mustInclude(packageScript, 'snippetGenerator', 'release package snippet generator source');

@@ -16,6 +16,8 @@ const sources = {
   releaseNotes: 'docs/ghost-release-notes.md',
   settingsContract: 'docs/ghost-settings-contract.md',
   snippetGenerator: 'src/ghost-snippet-generator.js',
+  betaHandoff: 'docs/ghost-beta-readiness-handoff.md',
+  supportHandoff: 'docs/ghost-support-handoff.md',
   reviewPacket: 'docs/ghost-published-site-review-packet.md',
   jeremyTutorial: 'docs/jeremy-ghost-test-tutorial.md',
   qaCases: 'qa/ghost-published-page-cases.json'
@@ -36,6 +38,8 @@ const releaseFiles = [
   ['ghost-release-notes.md', await readFile(sources.releaseNotes, 'utf8')],
   ['ghost-settings-contract.md', await readFile(sources.settingsContract, 'utf8')],
   ['ghost-snippet-generator.js', await readFile(sources.snippetGenerator, 'utf8')],
+  ['ghost-beta-readiness-handoff.md', await readFile(sources.betaHandoff, 'utf8')],
+  ['ghost-support-handoff.md', await readFile(sources.supportHandoff, 'utf8')],
   ['ghost-published-site-review-packet.md', await readFile(sources.reviewPacket, 'utf8')],
   ['jeremy-ghost-test-tutorial.md', await readFile(sources.jeremyTutorial, 'utf8')],
   ['ghost-published-page-cases.json', await readFile(sources.qaCases, 'utf8')]
@@ -70,6 +74,12 @@ const handoff = {
     'No Admin API keys, Content API keys, OAuth tokens, or private credentials belong in public Ghost markup.',
     'Scheduling rules, availability, appointments, calendars, offerings, and participants stay in Cloudversify.',
     'Use Ghost context fields only for public routing and attribution.'
+  ],
+  externalBlockers: [
+    'CDN location',
+    'Real Ghost site with Code Injection access',
+    'Published Ghost site and post/page URLs',
+    'Desktop and mobile screenshots'
   ],
   validation: ['npm run check']
 };

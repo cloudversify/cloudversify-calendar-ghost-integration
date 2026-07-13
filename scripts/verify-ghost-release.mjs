@@ -19,6 +19,8 @@ const expectedFiles = [
   'ghost-release-notes.md',
   'ghost-settings-contract.md',
   'ghost-snippet-generator.js',
+  'ghost-beta-readiness-handoff.md',
+  'ghost-support-handoff.md',
   'ghost-published-site-review-packet.md',
   'jeremy-ghost-test-tutorial.md',
   'ghost-published-page-cases.json',
@@ -44,6 +46,8 @@ mustInclude(await readFile(`${releaseDir}/html-card-embed.html`, 'utf8'), 'mode=
 mustInclude(await readFile(`${releaseDir}/ghost-release-notes.md`, 'utf8'), 'Rollback', 'rollback notes in package');
 mustInclude(await readFile(`${releaseDir}/ghost-settings-contract.md`, 'utf8'), 'Ghost Settings Contract', 'settings contract in package');
 mustInclude(await readFile(`${releaseDir}/ghost-snippet-generator.js`, 'utf8'), 'buildGhostSnippet', 'snippet generator in package');
+mustInclude(await readFile(`${releaseDir}/ghost-beta-readiness-handoff.md`, 'utf8'), 'External Blockers', 'beta readiness handoff in package');
+mustInclude(await readFile(`${releaseDir}/ghost-support-handoff.md`, 'utf8'), 'Triage Checklist', 'support handoff in package');
 mustInclude(await readFile(`${releaseDir}/ghost-published-site-review-packet.md`, 'utf8'), 'Published site URL', 'published-site review packet in package');
 mustInclude(await readFile(`${releaseDir}/jeremy-ghost-test-tutorial.md`, 'utf8'), 'Evidence To Send Back', 'Jeremy tutorial in package');
 mustInclude(await readFile(`${releaseDir}/ghost-published-page-cases.json`, 'utf8'), 'html-card-embed', 'QA cases in package');
@@ -56,6 +60,7 @@ assertEqual(handoff.review.jeremyTutorial, 'jeremy-ghost-test-tutorial.md', 'Jer
 assertEqual(handoff.review.qaCases, 'ghost-published-page-cases.json', 'QA cases handoff reference');
 mustInclude(handoff.validation, 'npm run check', 'release validation command');
 mustInclude(handoff.guardrails.join('\n'), 'No Admin API keys', 'no-secret release guardrail');
+mustInclude(handoff.externalBlockers.join('\n'), 'CDN location', 'external blocker handoff');
 
 console.log('Ghost release package verification passed.');
 
