@@ -1,0 +1,77 @@
+{
+  "platform": "ghost",
+  "surfaces": [
+    "Code Injection",
+    "HTML card",
+    "Handlebars theme partial"
+  ],
+  "setup": {
+    "publishRequired": true,
+    "publicMarkupOnly": true
+  },
+  "cases": [
+    {
+      "id": "code-injection-button",
+      "title": "Code Injection booking button opens hosted booking",
+      "surface": "Code Injection",
+      "mode": "button",
+      "requiredEvidence": [
+        "Published Ghost site URL",
+        "Desktop screenshot showing the booking button",
+        "Opened booking URL containing source_platform=ghost",
+        "Opened booking URL containing utm_medium=custom-integration"
+      ],
+      "passCriteria": [
+        "Button is visible without overlapping Ghost theme content",
+        "Button opens Cloudversify hosted booking in a new tab",
+        "No Ghost Admin API keys, Content API keys, OAuth tokens, or private credentials are visible in page source"
+      ]
+    },
+    {
+      "id": "html-card-embed",
+      "title": "HTML card embedded hosted booking renders",
+      "surface": "HTML card",
+      "mode": "embed",
+      "requiredEvidence": [
+        "Published Ghost post or page URL",
+        "Desktop screenshot showing iframe in the post or page body",
+        "Mobile screenshot showing iframe width fits the viewport",
+        "Iframe URL containing source_platform=ghost"
+      ],
+      "passCriteria": [
+        "Iframe loads Cloudversify hosted booking",
+        "Iframe height is at least 620px",
+        "Fallback link is visible below the iframe"
+      ]
+    },
+    {
+      "id": "member-context",
+      "title": "Member context is public and routing-only",
+      "surface": "HTML card",
+      "mode": "button",
+      "requiredEvidence": [
+        "Published Ghost post or page URL",
+        "Opened booking URL containing member_segment when configured",
+        "Page source showing no private member identifiers"
+      ],
+      "passCriteria": [
+        "Configured member-segment is passed as member_segment",
+        "No email address, Ghost member ID, subscription ID, or private member data is present in public markup",
+        "Hosted booking remains the source of truth for eligibility and availability"
+      ]
+    },
+    {
+      "id": "missing-organization",
+      "title": "Missing organization slug fails visibly",
+      "surface": "Code Injection",
+      "mode": "button",
+      "requiredEvidence": [
+        "Preview or published screenshot showing the configuration error"
+      ],
+      "passCriteria": [
+        "Widget shows a clear missing organization slug message",
+        "No broken empty link is shown"
+      ]
+    }
+  ]
+}

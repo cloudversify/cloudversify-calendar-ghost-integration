@@ -15,7 +15,10 @@ const sources = {
   implementationPlan: 'docs/ghost-implementation-plan.md',
   releaseNotes: 'docs/ghost-release-notes.md',
   settingsContract: 'docs/ghost-settings-contract.md',
-  snippetGenerator: 'src/ghost-snippet-generator.js'
+  snippetGenerator: 'src/ghost-snippet-generator.js',
+  reviewPacket: 'docs/ghost-published-site-review-packet.md',
+  jeremyTutorial: 'docs/jeremy-ghost-test-tutorial.md',
+  qaCases: 'qa/ghost-published-page-cases.json'
 };
 
 await rm(releaseDir, { force: true, recursive: true });
@@ -32,7 +35,10 @@ const releaseFiles = [
   ['ghost-implementation-plan.md', await readFile(sources.implementationPlan, 'utf8')],
   ['ghost-release-notes.md', await readFile(sources.releaseNotes, 'utf8')],
   ['ghost-settings-contract.md', await readFile(sources.settingsContract, 'utf8')],
-  ['ghost-snippet-generator.js', await readFile(sources.snippetGenerator, 'utf8')]
+  ['ghost-snippet-generator.js', await readFile(sources.snippetGenerator, 'utf8')],
+  ['ghost-published-site-review-packet.md', await readFile(sources.reviewPacket, 'utf8')],
+  ['jeremy-ghost-test-tutorial.md', await readFile(sources.jeremyTutorial, 'utf8')],
+  ['ghost-published-page-cases.json', await readFile(sources.qaCases, 'utf8')]
 ];
 
 const handoff = {
@@ -49,6 +55,11 @@ const handoff = {
   generator: {
     settingsContract: 'ghost-settings-contract.md',
     module: 'ghost-snippet-generator.js'
+  },
+  review: {
+    publishedSitePacket: 'ghost-published-site-review-packet.md',
+    jeremyTutorial: 'jeremy-ghost-test-tutorial.md',
+    qaCases: 'ghost-published-page-cases.json'
   },
   attribution: {
     source_platform: 'ghost',
